@@ -22,8 +22,9 @@
     .brand { display:flex; align-items:center; gap:12px; font-family:"Playfair Display",serif; font-size:1.45rem; letter-spacing:.02em; }
     .mark { width:32px; height:32px; border:1px solid var(--gold); display:grid; place-items:center; color:var(--gold); font-family:Georgia,serif; font-size:1.25rem; }
     .links { display:flex; gap:28px; font-size:.87rem; font-weight:600; }
+    .venue-dropdown { position:relative; } .venue-dropdown summary { cursor:pointer; list-style:none; } .venue-dropdown summary::-webkit-details-marker { display:none; } .venue-dropdown summary::after { content:" ▾"; color:#e7c47b; } .venue-dropdown-menu { position:absolute; top:28px; left:-16px; min-width:215px; background:#fff; color:var(--ink); border-top:3px solid var(--gold); box-shadow:0 12px 28px #0003; padding:8px 0; } .venue-dropdown-menu a { display:block; padding:10px 16px; } .venue-dropdown-menu a:hover { background:#f6f3ed; color:var(--forest); }
     .links a:hover { color:#e7c47b; }
-    .hero { min-height:720px; color:white; display:grid; align-items:end; padding:160px 0 92px; background:linear-gradient(90deg, rgba(10,27,24,.93) 0%, rgba(12,38,32,.72) 53%, rgba(12,38,32,.27)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=85') center/cover; }
+    .hero { min-height:720px; color:white; display:grid; align-items:end; padding:160px 0 92px; background:linear-gradient(125deg,#2b050a 0%,#5a0c18 55%,#8b1a2b 100%); }
     .eyebrow { color:#e7c47b; font-size:.74rem; letter-spacing:.18em; font-weight:700; text-transform:uppercase; }
     h1,h2,h3 { font-family:"Playfair Display",Georgia,serif; line-height:1.12; margin:0; }
     h1 { max-width:720px; font-size:clamp(3.1rem,7vw,6.1rem); margin:16px 0 22px; font-weight:600; }
@@ -46,9 +47,16 @@
     .card .index { color:var(--gold); font-size:.78rem; letter-spacing:.13em; font-weight:700; }
     .card h3 { font-size:1.55rem; margin:40px 0 13px; }
     .card p { color:#5e6b66; font-size:.94rem; margin:0; }
+    .gallery { display:grid; grid-template-columns:1.15fr .85fr .85fr; gap:18px; }
+    .gallery figure { margin:0; min-height:320px; position:relative; overflow:hidden; background:var(--forest); }
+    .gallery figure:first-child { min-height:470px; grid-row:span 2; }
+    .gallery img { width:100%; height:100%; position:absolute; object-fit:cover; transition:transform .35s; }
+    .gallery figure:hover img { transform:scale(1.04); }
+    .gallery figcaption { position:absolute; inset:auto 0 0; padding:50px 20px 19px; color:#fff; font-weight:700; background:linear-gradient(transparent,rgba(0,0,0,.75)); }
     .story { background:#e9e5dc; }
     .story-grid { display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; }
-    .story-image { min-height:500px; background:url('https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1100&q=85') center/cover; }
+    .story-image { min-height:500px; background:linear-gradient(145deg,#6a1020,#2b050a); position:relative; }
+    .story-image::after { content:"Empire Group"; color:#d9aa47; font:600 clamp(2rem,5vw,4.5rem) "Playfair Display",serif; position:absolute; inset:0; display:grid; place-items:center; letter-spacing:.04em; }
     .story-copy p { color:#52615b; font-size:1.04rem; margin:24px 0; }
     .signature { color:var(--forest); font:600 1.35rem "Playfair Display",serif; margin-top:28px; }
     .cta { text-align:center; background:var(--ink); color:white; padding:105px 0; }
@@ -60,18 +68,19 @@
     .footer-main p { max-width:280px; font-size:.88rem; }
     .contact { font-size:.91rem; line-height:1.9; }
     .copyright { border-top:1px solid #29403a; padding-top:20px; font-size:.76rem; display:flex; justify-content:space-between; }
-    @media (max-width:760px) { .topbar .wrap { font-size:.65rem; } .links { display:none; } .hero { min-height:650px; } .intro,.story-grid { grid-template-columns:1fr; gap:35px; } .number-grid,.cards { grid-template-columns:repeat(2,1fr); } .story-image { min-height:330px; order:2; } section { padding:70px 0; } .footer-main,.copyright { display:block; } .copyright { margin-top:20px; } }
-    @media (max-width:480px) { .number-grid,.cards { grid-template-columns:1fr; } .section-head { display:block; } .section-head p { margin-top:18px; } }
+    @media (max-width:760px) { .topbar .wrap { font-size:.65rem; } .links { display:none; } .hero { min-height:650px; } .intro,.story-grid { grid-template-columns:1fr; gap:35px; } .number-grid,.cards,.gallery { grid-template-columns:repeat(2,1fr); } .gallery figure:first-child { min-height:360px; grid-column:span 2; grid-row:auto; } .story-image { min-height:330px; order:2; } section { padding:70px 0; } .footer-main,.copyright { display:block; } .copyright { margin-top:20px; } }
+    @media (max-width:480px) { .number-grid,.cards,.gallery { grid-template-columns:1fr; } .gallery figure:first-child { grid-column:auto; } .section-head { display:block; } .section-head p { margin-top:18px; } }
   </style>
 </head>
 <body>
   <div class="topbar"><div class="wrap"><span>Built for the future</span><span>Karachi · Dubai · London</span></div></div>
-  <header><nav class="wrap"><a class="brand" href="#home"><span class="mark">E</span>Empire Group</a><div class="links"><a href="#about">About</a><a href="#businesses">Businesses</a><a href="#impact">Impact</a><a href="#contact">Contact</a></div></nav></header>
+  <header><nav class="wrap"><a class="brand" href="#home"><span class="mark">E</span>Empire Group</a><div class="links"><a href="about.html">About</a><details class="venue-dropdown"><summary>Venues</summary><div class="venue-dropdown-menu"><a href="grand-empire.html">Grand Empire Marquee</a><a href="gallery.html">All venue galleries</a></div></details><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a><a href="book-now.html">Book Now</a></div></nav></header>
   <main>
-    <section class="hero" id="home"><div class="wrap"><div class="eyebrow">Enterprise · Investment · Legacy</div><h1>Building what lasts.</h1><p>Empire Group creates enduring value through ambitious businesses, thoughtful investment, and a commitment to the communities we serve.</p><a class="button" href="#about">Discover our story <span>→</span></a></div></section>
+    <section class="hero" id="home"><div class="wrap"><div class="eyebrow">Legacy Event Complex</div><h1>Moments made magnificent.</h1><p>Empire Group creates beautiful, seamless celebrations at Legacy Event Complex—where every detail is considered and every occasion feels exceptional.</p><a class="button" href="book-now.html">Book your event <span>→</span></a></div></section>
     <section id="about"><div class="wrap intro"><div><div class="eyebrow" style="color:#96702d">The Empire Group</div><h2 style="margin-top:12px">Progress with purpose.</h2></div><p>We are a diversified group with a long-term point of view. Across every sector, we combine disciplined execution with imagination—turning opportunity into growth that benefits people, partners, and places.</p></div></section>
     <section class="numbers" id="impact"><div class="wrap number-grid"><div class="number"><strong>25+</strong><span>Years of enterprise</span></div><div class="number"><strong>12</strong><span>Markets served globally</span></div><div class="number"><strong>40+</strong><span>Strategic ventures</span></div><div class="number"><strong>2,500</strong><span>People in our network</span></div></div></section>
     <section id="businesses"><div class="wrap"><div class="section-head"><div><div class="eyebrow" style="color:#96702d">What we do</div><h2 style="margin-top:12px">A portfolio of possibility.</h2></div><p>We bring capital, capability, and conviction to businesses shaping the next chapter of their industries.</p></div><div class="cards"><article class="card"><div class="index">01 / REAL ESTATE</div><h3>Places with potential</h3><p>Thoughtfully developed spaces that elevate the way people live, work, and connect.</p></article><article class="card"><div class="index">02 / INVESTMENTS</div><h3>Capital with conviction</h3><p>Patient, strategic investment for businesses with strong foundations and a clear future.</p></article><article class="card"><div class="index">03 / HOSPITALITY</div><h3>Experiences that endure</h3><p>Distinctive hospitality concepts designed around service, detail, and belonging.</p></article></div></div></section>
+    <section><div class="wrap"><div class="section-head"><div><div class="eyebrow" style="color:#96702d">Our spaces</div><h2 style="margin-top:12px">Explore the venues.</h2></div><p>Discover our venues, then share your preferred images to build the gallery.</p></div><a class="button" href="gallery.html">Open venue gallery <span>→</span></a></div></section>
     <section class="story"><div class="wrap story-grid"><div class="story-image" aria-label="Empire Group team in a meeting"></div><div class="story-copy"><div class="eyebrow" style="color:#96702d">Our perspective</div><h2 style="margin-top:12px">The long view is our advantage.</h2><p>Short-term thinking rarely builds remarkable things. That is why we look beyond the next quarter—to relationships worth earning, ideas worth nurturing, and outcomes worth standing behind.</p><p>Our teams work closely with founders, operators, and communities to create progress that is both commercially resilient and genuinely meaningful.</p><div class="signature">— The Empire Group</div></div></div></section>
     <section class="cta" id="contact"><div class="wrap"><div class="eyebrow">Start a conversation</div><h2>Let’s create the next chapter together.</h2><p>Whether you have a business opportunity, a partnership idea, or a bold ambition, we would like to hear from you.</p><a class="button" href="mailto:hello@empiregroup.com">Contact Empire Group <span>→</span></a></div></section>
   </main>
