@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Empire Group — building enduring businesses and exceptional futures." />
+  <title>Empire Group | Build What Lasts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --ink:#12211e; --forest:#173d35; --sage:#9eae94; --cream:#f6f3ed; --gold:#c89b4a; --white:#fff; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--cream); font-family:"DM Sans",Arial,sans-serif; line-height:1.6; }
+    a { color:inherit; text-decoration:none; }
+    .wrap { width:min(1140px, calc(100% - 44px)); margin:auto; }
+    .topbar { background:var(--ink); color:#d9e2dc; font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; }
+    .topbar .wrap { display:flex; justify-content:space-between; padding:10px 0; }
+    header { position:absolute; width:100%; z-index:5; color:white; }
+    nav { height:88px; display:flex; align-items:center; justify-content:space-between; }
+    .brand { display:flex; align-items:center; gap:12px; font-family:"Playfair Display",serif; font-size:1.45rem; letter-spacing:.02em; }
+    .mark { width:32px; height:32px; border:1px solid var(--gold); display:grid; place-items:center; color:var(--gold); font-family:Georgia,serif; font-size:1.25rem; }
+    .links { display:flex; gap:28px; font-size:.87rem; font-weight:600; }
+    .links a:hover { color:#e7c47b; }
+    .hero { min-height:720px; color:white; display:grid; align-items:end; padding:160px 0 92px; background:linear-gradient(90deg, rgba(10,27,24,.93) 0%, rgba(12,38,32,.72) 53%, rgba(12,38,32,.27)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1800&q=85') center/cover; }
+    .eyebrow { color:#e7c47b; font-size:.74rem; letter-spacing:.18em; font-weight:700; text-transform:uppercase; }
+    h1,h2,h3 { font-family:"Playfair Display",Georgia,serif; line-height:1.12; margin:0; }
+    h1 { max-width:720px; font-size:clamp(3.1rem,7vw,6.1rem); margin:16px 0 22px; font-weight:600; }
+    .hero p { max-width:520px; font-size:1.08rem; color:#e1e8e3; margin:0 0 36px; }
+    .button { display:inline-flex; align-items:center; gap:15px; padding:14px 20px; background:var(--gold); color:#162821; font-weight:700; font-size:.84rem; letter-spacing:.05em; text-transform:uppercase; transition:.2s; }
+    .button:hover { background:#e2bb73; transform:translateY(-2px); }
+    section { padding:100px 0; }
+    .intro { display:grid; grid-template-columns:1fr 1.5fr; gap:80px; }
+    h2 { font-size:clamp(2.25rem,4vw,3.7rem); }
+    .intro p { font-size:1.22rem; margin:0; color:#40504a; }
+    .numbers { background:var(--forest); color:white; }
+    .number-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:28px; }
+    .number strong { display:block; color:#e7c47b; font:600 clamp(2.1rem,4vw,3.4rem)/1 "Playfair Display",serif; margin-bottom:10px; }
+    .number span { color:#c9d6ce; font-size:.88rem; }
+    .section-head { display:flex; justify-content:space-between; align-items:end; margin-bottom:44px; gap:20px; }
+    .section-head p { max-width:370px; margin:0; color:#50605a; }
+    .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+    .card { background:white; padding:34px 30px; min-height:260px; border-bottom:3px solid transparent; transition:.25s; }
+    .card:hover { border-color:var(--gold); transform:translateY(-5px); box-shadow:0 18px 40px #1a312012; }
+    .card .index { color:var(--gold); font-size:.78rem; letter-spacing:.13em; font-weight:700; }
+    .card h3 { font-size:1.55rem; margin:40px 0 13px; }
+    .card p { color:#5e6b66; font-size:.94rem; margin:0; }
+    .story { background:#e9e5dc; }
+    .story-grid { display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; }
+    .story-image { min-height:500px; background:url('https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1100&q=85') center/cover; }
+    .story-copy p { color:#52615b; font-size:1.04rem; margin:24px 0; }
+    .signature { color:var(--forest); font:600 1.35rem "Playfair Display",serif; margin-top:28px; }
+    .cta { text-align:center; background:var(--ink); color:white; padding:105px 0; }
+    .cta h2 { max-width:700px; margin:14px auto 24px; }
+    .cta p { color:#c7d1ca; max-width:510px; margin:0 auto 32px; }
+    footer { background:#0b1715; color:#b9c6bd; padding:48px 0 25px; }
+    .footer-main { display:flex; justify-content:space-between; gap:30px; padding-bottom:42px; }
+    .footer-main .brand { color:white; }
+    .footer-main p { max-width:280px; font-size:.88rem; }
+    .contact { font-size:.91rem; line-height:1.9; }
+    .copyright { border-top:1px solid #29403a; padding-top:20px; font-size:.76rem; display:flex; justify-content:space-between; }
+    @media (max-width:760px) { .topbar .wrap { font-size:.65rem; } .links { display:none; } .hero { min-height:650px; } .intro,.story-grid { grid-template-columns:1fr; gap:35px; } .number-grid,.cards { grid-template-columns:repeat(2,1fr); } .story-image { min-height:330px; order:2; } section { padding:70px 0; } .footer-main,.copyright { display:block; } .copyright { margin-top:20px; } }
+    @media (max-width:480px) { .number-grid,.cards { grid-template-columns:1fr; } .section-head { display:block; } .section-head p { margin-top:18px; } }
+  </style>
+</head>
+<body>
+  <div class="topbar"><div class="wrap"><span>Built for the future</span><span>Karachi · Dubai · London</span></div></div>
+  <header><nav class="wrap"><a class="brand" href="#home"><span class="mark">E</span>Empire Group</a><div class="links"><a href="#about">About</a><a href="#businesses">Businesses</a><a href="#impact">Impact</a><a href="#contact">Contact</a></div></nav></header>
+  <main>
+    <section class="hero" id="home"><div class="wrap"><div class="eyebrow">Enterprise · Investment · Legacy</div><h1>Building what lasts.</h1><p>Empire Group creates enduring value through ambitious businesses, thoughtful investment, and a commitment to the communities we serve.</p><a class="button" href="#about">Discover our story <span>→</span></a></div></section>
+    <section id="about"><div class="wrap intro"><div><div class="eyebrow" style="color:#96702d">The Empire Group</div><h2 style="margin-top:12px">Progress with purpose.</h2></div><p>We are a diversified group with a long-term point of view. Across every sector, we combine disciplined execution with imagination—turning opportunity into growth that benefits people, partners, and places.</p></div></section>
+    <section class="numbers" id="impact"><div class="wrap number-grid"><div class="number"><strong>25+</strong><span>Years of enterprise</span></div><div class="number"><strong>12</strong><span>Markets served globally</span></div><div class="number"><strong>40+</strong><span>Strategic ventures</span></div><div class="number"><strong>2,500</strong><span>People in our network</span></div></div></section>
+    <section id="businesses"><div class="wrap"><div class="section-head"><div><div class="eyebrow" style="color:#96702d">What we do</div><h2 style="margin-top:12px">A portfolio of possibility.</h2></div><p>We bring capital, capability, and conviction to businesses shaping the next chapter of their industries.</p></div><div class="cards"><article class="card"><div class="index">01 / REAL ESTATE</div><h3>Places with potential</h3><p>Thoughtfully developed spaces that elevate the way people live, work, and connect.</p></article><article class="card"><div class="index">02 / INVESTMENTS</div><h3>Capital with conviction</h3><p>Patient, strategic investment for businesses with strong foundations and a clear future.</p></article><article class="card"><div class="index">03 / HOSPITALITY</div><h3>Experiences that endure</h3><p>Distinctive hospitality concepts designed around service, detail, and belonging.</p></article></div></div></section>
+    <section class="story"><div class="wrap story-grid"><div class="story-image" aria-label="Empire Group team in a meeting"></div><div class="story-copy"><div class="eyebrow" style="color:#96702d">Our perspective</div><h2 style="margin-top:12px">The long view is our advantage.</h2><p>Short-term thinking rarely builds remarkable things. That is why we look beyond the next quarter—to relationships worth earning, ideas worth nurturing, and outcomes worth standing behind.</p><p>Our teams work closely with founders, operators, and communities to create progress that is both commercially resilient and genuinely meaningful.</p><div class="signature">— The Empire Group</div></div></div></section>
+    <section class="cta" id="contact"><div class="wrap"><div class="eyebrow">Start a conversation</div><h2>Let’s create the next chapter together.</h2><p>Whether you have a business opportunity, a partnership idea, or a bold ambition, we would like to hear from you.</p><a class="button" href="mailto:hello@empiregroup.com">Contact Empire Group <span>→</span></a></div></section>
+  </main>
+  <footer><div class="wrap"><div class="footer-main"><div><a class="brand" href="#home"><span class="mark">E</span>Empire Group</a><p>Building enduring businesses and exceptional futures.</p></div><div class="contact"><strong style="color:white">Get in touch</strong><br>hello@empiregroup.com<br>+92 300 000 0000<br>Karachi, Pakistan</div></div><div class="copyright"><span>© 2026 Empire Group. All rights reserved.</span><span>Privacy · Terms</span></div></div></footer>
+</body>
+</html>
