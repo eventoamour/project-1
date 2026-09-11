@@ -14,10 +14,13 @@
 
   const start = async () => {
     try {
-      const client = createEmpireSupabaseClient();
-      const { data: { session } } = await client.auth.getSession();
-      if (session) window.location.replace('admin-dashboard.html');
+      if (!supabaseClient) throw new Error('Supabase client is unavailable. Check supabase-config.js.');
+      const { data: { session } } = await supabaseClient.auth.getSession();
+      if (session) {
+        window.location.href = "admin-dashboard.html";
+      }
     } catch (configurationError) {
+      console.error('[Login session] Unable to check the current session:', configurationError);
       showError(configurationError.message);
     }
   };
@@ -28,21 +31,29 @@
     if (!form.reportValidity()) return;
     setLoading(true);
     try {
-      const client = createEmpireSupabaseClient();
-      const { error: signInError } = await client.auth.signInWithPassword({
+      if (!supabaseClient) throw new Error('Supabase client is unavailable. Check supabase-config.js.');
+      const { error: signInError } = await supabaseClient.auth.signInWithPassword({
         email: form.email.value.trim(),
         password: form.password.value
       });
       if (signInError) throw signInError;
-      const { data: { user } } = await client.auth.getUser();
-      const { data: profile, error: profileError } = await client.from('profiles').select('role').eq('id', user.id).maybeSingle();
-      if (profileError) throw profileError;
+      const { data: { user } } = await supabaseClient.auth.getUser();
+      const { data: profile, error: profileError } = await supabaseClient
+        .from('profiles')
+        .select('role')
+        .eq('id', user.id)
+        .single();
+      if (profileError) {
+        console.error('[Login profile] Profile lookup failed:', profileError);
+        throw profileError;
+      }
       if (!profile || !['admin', 'manager'].includes(profile.role)) {
-        await client.auth.signOut();
+        await supabaseClient.auth.signOut();
         throw new Error('This account is not authorized for the staff dashboard.');
       }
-      window.location.replace('admin-dashboard.html');
+      window.location.href = "admin-dashboard.html";
     } catch (loginError) {
+      console.error('[Login] Sign-in or redirect failed:', loginError);
       showError(loginError.message || 'Unable to sign in. Check your details and try again.');
       setLoading(false);
     }

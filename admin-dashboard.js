@@ -9,18 +9,34 @@
   const friendlyError = (error) => error?.message || 'Something went wrong. Please try again.';
 
   const requireProfile = async () => {
-    state.client = createEmpireSupabaseClient();
-    const { data: { session } } = await state.client.auth.getSession();
-    if (!session) { window.location.replace('admin-login.html'); return false; }
-    state.user = session.user;
-    const { data: profile, error } = await state.client.from('profiles').select('full_name, role').eq('id', state.user.id).maybeSingle();
-    if (error || !profile || !['admin', 'manager'].includes(profile.role)) {
-      await state.client.auth.signOut();
-      window.location.replace('admin-login.html');
+    if (!supabaseClient) throw new Error('Supabase client is unavailable. Check supabase-config.js.');
+    state.client = supabaseClient;
+    const { data: { user } } = await supabaseClient.auth.getUser();
+    if (!user) {
+      window.location.href = "admin-login.html";
+      return false;
+    }
+    state.user = user;
+    const { data: profile, error } = await supabaseClient
+      .from("profiles")
+      .select("role")
+      .eq("id", user.id)
+      .single();
+    if (error) {
+      console.error('[Dashboard profile] Profile lookup failed:', error);
+      setMessage(`Profile lookup failed: ${friendlyError(error)}`, true);
+      return false;
+    }
+    if (!profile || !['admin', 'manager'].includes(profile.role)) {
+      const roleError = new Error('Your profile is not authorized for the staff dashboard.');
+      console.error('[Dashboard profile] Unauthorized profile:', roleError);
+      setMessage(roleError.message, true);
+      await supabaseClient.auth.signOut();
+      window.location.href = "admin-login.html";
       return false;
     }
     state.profile = profile;
-    $('user-name').textContent = profile.full_name;
+    $('user-name').textContent = user.email || 'Signed-in staff';
     $('user-role').textContent = profile.role;
     fields.date.value = today();
     return true;
@@ -100,5 +116,13 @@
     const worksheet = XLSX.utils.json_to_sheet(rows); const workbook = XLSX.utils.book_new(); XLSX.utils.book_append_sheet(workbook, worksheet, 'Customers'); XLSX.writeFile(workbook, `Empire-Marquee-Customers-${today()}.xlsx`);
   });
 
-  (async () => { try { if (await requireProfile()) { await loadRecords(); await loadStaff(); } } catch (error) { setMessage(friendlyError(error), true); $('table-status').textContent = 'Unable to load records.'; } })();
+  (async () => {
+    try {
+      if (await requireProfile()) { await loadRecords(); await loadStaff(); }
+    } catch (error) {
+      console.error('[Dashboard loading] Dashboard initialization failed:', error);
+      setMessage(`Dashboard loading failed: ${friendlyError(error)}`, true);
+      $('table-status').textContent = `Unable to load dashboard: ${friendlyError(error)}`;
+    }
+  })();
 })();

@@ -11,3 +11,10 @@ window.createEmpireSupabaseClient = function () {
   }
   return window.supabase.createClient(config.url, config.anonKey);
 };
+
+try {
+  var supabaseClient = window.createEmpireSupabaseClient();
+} catch (configurationError) {
+  console.error('[Supabase config] Client initialization failed:', configurationError);
+  var supabaseClient = null;
+}
