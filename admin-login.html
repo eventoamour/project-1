@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Private Empire Group staff login" />
+  <title>Staff Login | Empire Group</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body class="admin-auth">
+  <main class="auth-shell">
+    <a class="admin-brand" href="index.html"><span class="admin-mark">E</span><span>Empire Group</span></a>
+    <section class="auth-panel" aria-labelledby="login-title">
+      <p class="admin-eyebrow">Private staff area</p>
+      <h1 id="login-title">Welcome back.</h1>
+      <p class="auth-intro">Sign in to manage today&apos;s walk-in customers and event enquiries.</p>
+      <form id="login-form" novalidate>
+        <label for="email">Email address</label>
+        <input id="email" name="email" type="email" autocomplete="username" required />
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required />
+        <button class="admin-button" type="submit"><span id="login-label">Sign in</span><span id="login-spinner" class="spinner hidden" aria-hidden="true"></span></button>
+        <p id="login-error" class="form-message error" role="alert"></p>
+      </form>
+      <a class="back-link" href="index.html">← Return to public website</a>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="admin-login.js"></script>
+</body>
+</html>

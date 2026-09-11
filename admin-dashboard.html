@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Empire Group private customer management dashboard" />
+  <title>Customer Dashboard | Empire Group</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body class="admin-app">
+  <header class="admin-header"><div class="admin-header-inner"><a class="admin-brand" href="index.html"><span class="admin-mark">E</span><span>Empire Group</span></a><div class="header-actions"><div class="user-chip"><strong id="user-name">Loading...</strong><span id="user-role"></span></div><button id="logout-button" class="text-button" type="button">Log out</button></div></div></header>
+  <main class="dashboard-shell">
+    <div id="global-message" class="global-message" role="status"></div>
+    <div class="dashboard-title"><div><p class="admin-eyebrow">Private operations</p><h1>Walk-in customers</h1><p>Keep today&apos;s guest records precise, searchable, and ready for the team.</p></div><button id="export-button" class="admin-button secondary" type="button">Export Excel</button></div>
+    <section class="stat-grid" aria-label="Visitor summary"><article class="stat-card"><span>Today&apos;s visitors</span><strong id="today-count">—</strong></article><article class="stat-card"><span>Today&apos;s guests</span><strong id="today-guests">—</strong></article><article class="stat-card"><span>Total records</span><strong id="total-count">—</strong></article></section>
+    <section class="entry-panel"><div class="section-heading"><div><p class="admin-eyebrow">Daily register</p><h2 id="form-title">Add a customer</h2></div><button id="cancel-edit" class="text-button hidden" type="button">Cancel edit</button></div><form id="customer-form" class="customer-form" novalidate><div class="field"><label for="customer-name">Customer name <span>*</span></label><input id="customer-name" required maxlength="120" /></div><div class="field"><label for="phone">Phone number <span>*</span></label><input id="phone" type="tel" required maxlength="40" /></div><div class="field"><label for="guests">Number of guests <span>*</span></label><input id="guests" type="number" min="1" step="1" required /></div><div class="field"><label for="visit-date">Visit date <span>*</span></label><input id="visit-date" type="date" required /></div><div class="field"><label for="event-type">Event type</label><select id="event-type"><option value="">Select event type</option><option>Wedding</option><option>Walima</option><option>Mehndi</option><option>Nikkah</option><option>Engagement</option><option>Birthday</option><option>Corporate Event</option><option>Other</option></select></div><div class="field field-wide"><label for="notes">Notes <span class="optional">Optional</span></label><textarea id="notes" maxlength="2000" rows="3"></textarea></div><div class="form-actions"><button id="save-button" class="admin-button" type="submit">Save customer</button><span class="form-hint">Manager is assigned from your signed-in profile.</span></div></form></section>
+    <section class="records-section"><div class="section-heading"><div><p class="admin-eyebrow">Customer history</p><h2>Records</h2></div></div><div class="filters"><label>Search<input id="search-filter" type="search" placeholder="Name or phone" /></label><label>Date<input id="date-filter" type="date" /></label><label>Event type<select id="event-filter"><option value="">All events</option><option>Wedding</option><option>Walima</option><option>Mehndi</option><option>Nikkah</option><option>Engagement</option><option>Birthday</option><option>Corporate Event</option><option>Other</option></select></label><button id="clear-filters" class="outline-button" type="button">Clear filters</button></div><div id="table-status" class="table-status">Loading records...</div><div class="table-wrap"><table><thead><tr><th>Visit date</th><th>Customer</th><th>Phone</th><th>Guests</th><th>Event</th><th>Manager</th><th>Notes</th><th><span class="sr-only">Actions</span></th></tr></thead><tbody id="records-body"></tbody></table></div></section>
+    <section id="staff-section" class="records-section hidden"><div class="section-heading"><div><p class="admin-eyebrow">Administration</p><h2>Staff access</h2></div></div><p class="form-hint">Create staff accounts in Supabase Authentication, then add their profile in the SQL Editor. Existing staff roles can be changed here.</p><div class="table-wrap"><table><thead><tr><th>Staff member</th><th>Role</th><th>Created</th><th><span class="sr-only">Actions</span></th></tr></thead><tbody id="staff-body"></tbody></table></div></section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+  <script src="supabase-config.js"></script>
+  <script src="admin-dashboard.js"></script>
+</body>
+</html>
