@@ -1,6 +1,210 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Contact | Empire Group</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css"></head>
-<body><div class="topbar"><div class="wrap"><span>Built for memorable occasions</span><span>Empire Group Venues</span></div></div><header><nav class="wrap"><a class="brand" href="index.html"><span class="mark">E</span>Empire Group</a><div class="links"><a href="about.html">About</a><a class="active" href="contact.html">Contact</a><a href="book-now.html">Book Now</a><a href="admin-login.html">Admin</a></div></nav></header>
-<main><section class="page-hero"><div class="wrap"><div class="eyebrow">Contact us</div><h1>We would love to hear your plans.</h1><p>Talk to our events team about our venues, availability, and your upcoming celebration.</p></div></section><section><div class="wrap contact-grid"><aside class="contact-details"><div class="eyebrow">Empire Group Venues</div><h2 style="margin-top:12px">Let’s start a conversation.</h2><p>For event enquiries and venue information, connect with us directly on WhatsApp or telephone.</p><p><strong>Phone & WhatsApp</strong><br><a href="tel:+923218489366">0321 8489366</a></p><p><strong>Our venues</strong><br>Legacy Event Complex<br>Glorious Marquee<br>Grand Empire Marquee<br>Garrison Empire Halls</p><a class="button" href="https://wa.me/923218489366?text=Hello%20Empire%20Group%2C%20I%20would%20like%20to%20enquire%20about%20an%20event.">WhatsApp us <span>→</span></a></aside><div class="form-card"><div class="eyebrow" style="color:#96702d">Event quotation</div><h2 style="margin-top:12px">Tell us about your event.</h2><p style="color:#5b6862">Complete the form and we will open WhatsApp with your enquiry ready to send.</p><form id="quote-form"><div class="form-row"><div><label for="name">Your name</label><input id="name" required></div><div><label for="phone">Phone number</label><input id="phone" type="tel" required></div></div><label for="venue">Preferred venue</label><select id="venue" required><option value="" disabled selected>Select a venue</option><option>Legacy Event Complex</option><option>Glorious Marquee</option><option>Grand Empire Marquee</option><option>Garrison Empire Halls</option></select><label for="type">Event type</label><select id="type" required><option value="" disabled selected>Select event type</option><option>Wedding</option><option>Mehndi / Barat / Walima</option><option>Corporate event</option><option>Birthday or private celebration</option><option>Other</option></select><div class="form-row"><div><label for="date">Preferred date</label><input id="date" type="date"></div><div><label for="guests">Estimated guests</label><input id="guests" type="number" min="1" placeholder="e.g. 300"></div></div><label for="details">Event details</label><textarea id="details" placeholder="Tell us anything that will help us prepare your quotation."></textarea><button class="button" type="submit" style="margin-top:24px">Send enquiry on WhatsApp <span>→</span></button><p class="form-note">Submitting opens WhatsApp with your quotation request. Please press Send in WhatsApp to deliver it.</p></form></div></div></section></main>
-<footer><div class="wrap"><div class="footer-main"><div><a class="brand" href="index.html"><span class="mark">E</span>Empire Group</a><p>Creating occasions worth remembering.</p></div><div class="contact"><strong style="color:white">Empire Group Venues</strong><br><a href="tel:+923218489366">0321 8489366</a><br><a href="https://wa.me/923218489366">WhatsApp us</a></div></div><div class="copyright"><span>© 2026 Empire Group. All rights reserved.</span><span>Legacy · Glorious · Grand Empire · Garrison</span></div></div></footer>
-<script>document.getElementById('quote-form').addEventListener('submit',function(e){e.preventDefault();const v=id=>document.getElementById(id).value.trim();const lines=['Hello Empire Group,','','I would like a quotation for an event.','',`Name: ${v('name')}`,`Phone: ${v('phone')}`,`Preferred venue: ${v('venue')}`,`Event type: ${v('type')}`,`Preferred date: ${v('date')||'Not specified'}`,`Estimated guests: ${v('guests')||'Not specified'}`,`Event details: ${v('details')||'Not specified'}`];window.open('https://wa.me/923218489366?text='+encodeURIComponent(lines.join('\n')),'_blank','noopener');});</script></body></html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Contact | Empire Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="luxury.css">
+<script src="site.js" defer>
+</script>
+<meta name="description" content="Request a tailored quotation for your wedding or event at an Empire Group venue in Lahore.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Empire Group">
+<meta property="og:title" content="Contact | Empire Group">
+<meta property="og:description" content="Request a tailored quotation for your wedding or event at an Empire Group venue in Lahore.">
+<meta property="og:image" content="assets/images/hero/grand-interior-1600.webp">
+<meta property="og:image:alt" content="Grand Empire Marquee wedding hall in Lahore">
+<meta name="theme-color" content="#173d35">
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header">
+<nav class="wrap" aria-label="Main navigation">
+<a class="brand" href="index.html">
+<span class="mark" aria-hidden="true">E</span>
+<span>Empire Group<small>VENUES &amp; CELEBRATIONS</small>
+</span>
+</a>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-links" aria-label="Open navigation">
+<span>
+</span>
+<span>
+</span>
+</button>
+<div class="links" id="main-links">
+<a href="about.html">About</a>
+<details class="venue-dropdown">
+<summary>Venues</summary>
+<div class="venue-dropdown-menu">
+<a href="legacy.html">Legacy Event Complex</a>
+<a href="glorious.html">Glorious Marquee</a>
+<a href="grand-empire.html">Grand Empire Marquee</a>
+<a href="garrison.html">Garrison Empire Halls</a>
+<a href="index.html#venues">All Venues</a>
+</div>
+</details>
+<a href="gallery.html">Gallery</a>
+<a href="contact.html" aria-current="page">Contact</a>
+<a href="book-now.html">Book Now</a>
+<a href="admin-login.html">Admin</a>
+</div>
+</nav>
+</header>
+<main id="main-content">
+<section class="page-hero">
+<div class="wrap">
+<div class="eyebrow">Contact us</div>
+<h1>We would love to hear your plans.</h1>
+<p>Talk to our events team about our venues, availability, and your upcoming celebration.</p>
+</div>
+</section>
+<section>
+<div class="wrap contact-grid">
+<aside class="contact-details">
+<div class="eyebrow">Empire Group Venues</div>
+<h2 style="margin-top:12px">Let’s start a conversation.</h2>
+<p>For event enquiries and venue information, connect with us directly on WhatsApp or telephone.</p>
+<p>
+<strong>Phone & WhatsApp</strong>
+<br>
+<a href="tel:+923218489366">0321 8489366</a>
+</p>
+<h3 style="margin-top:28px">Find your venue</h3>
+<ul class="location-list">
+<li><a href="https://maps.app.goo.gl/MMx3iqmCL4uTL4aq7" target="_blank" rel="noopener" aria-label="Get directions to Legacy Event Complex on Google Maps (opens in a new tab)"><span><strong>Legacy Event Complex</strong><small>Get directions on Google Maps</small></span><span class="location-arrow" aria-hidden="true">↗</span></a></li>
+<li><a href="https://maps.app.goo.gl/ikk2hFGtfC9Jtt1B6" target="_blank" rel="noopener" aria-label="Get directions to Glorious Marquee on Google Maps (opens in a new tab)"><span><strong>Glorious Marquee</strong><small>Get directions on Google Maps</small></span><span class="location-arrow" aria-hidden="true">↗</span></a></li>
+<li><a href="https://maps.app.goo.gl/4gEoXNssAwV6752S7" target="_blank" rel="noopener" aria-label="Get directions to Grand Empire Marquee on Google Maps (opens in a new tab)"><span><strong>Grand Empire Marquee</strong><small>Get directions on Google Maps</small></span><span class="location-arrow" aria-hidden="true">↗</span></a></li>
+<li><a href="https://maps.app.goo.gl/zRaM89ByidCHbEwn8" target="_blank" rel="noopener" aria-label="Get directions to Garrison Empire Halls on Google Maps (opens in a new tab)"><span><strong>Garrison Empire Halls</strong><small>Get directions on Google Maps</small></span><span class="location-arrow" aria-hidden="true">↗</span></a></li>
+</ul>
+<a class="button" href="https://wa.me/923218489366?text=Hello%20Empire%20Group%2C%20I%20would%20like%20to%20enquire%20about%20an%20event.">WhatsApp us <span>→</span>
+</a>
+</aside>
+<div class="form-card">
+<div class="eyebrow" style="color:#96702d">Event quotation</div>
+<h2 style="margin-top:12px">Tell us about your event.</h2>
+<p style="color:#5b6862">Complete the form and we will open WhatsApp with your enquiry ready to send.</p>
+<form id="quote-form">
+<div class="form-row">
+<div>
+<label for="name">Your name</label>
+<input id="name" name="name" autocomplete="name" required maxlength="120" placeholder="Your full name">
+</div>
+<div>
+<label for="phone">Phone number</label>
+<input id="phone" name="phone" type="tel" autocomplete="tel" required maxlength="40" placeholder="e.g. 0321 8489366" aria-describedby="quote-status">
+</div>
+</div>
+<label for="venue">Preferred venue</label>
+<select id="venue" required>
+<option value="" disabled selected>Select a venue</option>
+<option>Legacy Event Complex</option>
+<option>Glorious Marquee</option>
+<option>Grand Empire Marquee</option>
+<option>Garrison Empire Halls</option>
+</select>
+<label for="type">Event type</label>
+<select id="type" required>
+<option value="" disabled selected>Select event type</option>
+<option>Wedding</option>
+<option>Mehndi / Barat / Walima</option>
+<option>Corporate event</option>
+<option>Birthday or private celebration</option>
+<option>Other</option>
+</select>
+<div class="form-row">
+<div>
+<label for="date">Preferred date</label>
+<input id="date" type="date">
+</div>
+<div>
+<label for="guests">Estimated guests</label>
+<input id="guests" type="number" min="1" step="1" placeholder="e.g. 300">
+</div>
+</div>
+<label for="details">Event details</label>
+<textarea id="details" maxlength="2000" placeholder="Tell us anything that will help us prepare your quotation.">
+</textarea>
+<button class="button" type="submit" style="margin-top:24px">Send enquiry on WhatsApp <span>→</span>
+</button>
+<p class="form-note">Submitting opens WhatsApp with your quotation request. Please press Send in WhatsApp to deliver it.</p>
+<p id="quote-status" class="form-feedback" role="status" aria-live="polite">
+</p>
+<a id="quote-fallback" class="text-link" hidden target="_blank" rel="noopener">Open your prepared enquiry in WhatsApp ↗</a>
+</form>
+</div>
+</div>
+</section>
+<section class="booking-cta">
+<div class="wrap">
+<div class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</div>
+<h2>Your celebration deserves<br>an <em>extraordinary</em> setting.</h2>
+<p>Share your vision. We’ll help you find the perfect place to bring it to life.</p>
+<div class="button-row">
+<a class="button" href="contact.html#quote-form">Get a quotation <span>↗</span>
+</a>
+<a class="button button-outline" href="https://wa.me/923218489366">WhatsApp us <span>↗</span>
+</a>
+</div>
+</div>
+</section>
+</main>
+<footer>
+<div class="wrap">
+<div class="footer-main">
+<div>
+<a class="brand" href="index.html">
+<span class="mark" aria-hidden="true">E</span>
+<span>Empire Group<small>VENUES &amp; CELEBRATIONS</small>
+</span>
+</a>
+<p>Beautiful settings. Thoughtful hospitality.<br>Celebrations that stay with you.</p>
+<a class="text-link" href="https://wa.me/923218489366">Let’s plan something special ↗</a>
+</div>
+<div class="footer-links">
+<h3>Our venues</h3>
+<a href="legacy.html">Legacy Event Complex</a>
+<a href="glorious.html">Glorious Marquee</a>
+<a href="grand-empire.html">Grand Empire Marquee</a>
+<a href="garrison.html">Garrison Empire Halls</a>
+</div>
+<div class="contact">
+<strong style="color:white">Empire Group Venues</strong>
+<br>
+<a href="tel:+923218489366">0321 8489366</a>
+<br>
+<a href="https://wa.me/923218489366">WhatsApp us</a>
+</div>
+<div class="footer-links">
+<h3>Stay connected</h3>
+<a href="https://www.facebook.com/profile.php?id=100094765842459" target="_blank" rel="noopener">Legacy on Facebook ↗</a>
+<a href="https://www.facebook.com/profile.php?id=61558022280793" target="_blank" rel="noopener">Glorious on Facebook ↗</a>
+<a href="https://www.facebook.com/grandempiremarque" target="_blank" rel="noopener">Grand on Facebook ↗</a>
+<a href="https://www.facebook.com/GarrisonEmpire82" target="_blank" rel="noopener">Garrison on Facebook ↗</a>
+</div>
+</div>
+<div class="copyright">
+<span>© 2026 Empire Group. All rights reserved.</span>
+<span>
+<a href="privacy.html">Privacy</a>
+<span aria-hidden="true"> / </span>
+<a href="terms.html">Terms</a>
+<span aria-hidden="true"> / </span>
+<a href="admin-login.html">Staff login</a>
+</span>
+<span>Made for moments that matter.</span>
+</div>
+</div>
+</footer>
+<a class="floating-whatsapp" href="https://wa.me/923218489366?text=Hello%20Empire%20Group%2C%20I%20would%20like%20to%20enquire%20about%20an%20event." aria-label="Enquire now on WhatsApp">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+<path d="M20.5 11.6a8.5 8.5 0 0 1-12.6 7.5L3 20.5l1.4-4.8a8.5 8.5 0 1 1 16.1-4.1Z"/>
+<path d="M8 7.5c-2 2 3 8 6 7.5l1.5-2-2.5-1-1 1c-1.3-.6-2.3-1.6-3-3l1-1Z"/>
+</svg>
+<span>Enquire Now</span>
+</a>
+</body>
+</html>

@@ -1,29 +1,188 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Glorious Marquee | Empire Group</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glorious Marquee | Empire Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
     .venue-nav{position:relative}.venue-toggle{background:none;border:0;color:#fff;font:700 .84rem "DM Sans",sans-serif;cursor:pointer;padding:10px 0}.venue-menu{display:none;position:absolute;top:39px;left:-20px;width:230px;background:#fff;border-top:3px solid #d9aa47;box-shadow:0 14px 30px #2b050a33;z-index:10}.venue-nav:focus-within .venue-menu,.venue-nav:hover .venue-menu{display:block}.venue-menu a{display:block;color:#4a0b14;padding:12px 18px;font-size:.86rem}.venue-menu a:hover,.venue-menu a.active{background:#f8ebd5;color:#8b1524}
-    .glorious-hero{min-height:660px;display:flex;align-items:end;padding:120px 0 74px;color:#fff;background:linear-gradient(90deg,#190306d9 0%,#38070a99 46%,#19030625 100%),url('assets/glorious/473285075_122166806972267409_7080215392851097761_n.jpg') center/cover}.glorious-hero h1{max-width:680px;font-size:clamp(3.2rem,7vw,6.1rem);margin:14px 0}.glorious-hero p{max-width:520px;color:#f5ddd3;font-size:1.08rem}.glorious-tag{color:#f0c971;font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+    .glorious-hero{min-height:660px;display:flex;align-items:end;padding:120px 0 74px;color:#fff;background:linear-gradient(90deg,#190306d9 0%,#38070a99 46%,#19030625 100%),url('assets/images/venues/glorious/473285075_122166806972267409_7080215392851097761_n-1600.webp') center/cover}.glorious-hero h1{max-width:680px;font-size:clamp(3.2rem,7vw,6.1rem);margin:14px 0}.glorious-hero p{max-width:520px;color:#f5ddd3;font-size:1.08rem}.glorious-tag{color:#f0c971;font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
     .glorious-intro{display:grid;grid-template-columns:1fr 1.15fr;gap:68px;align-items:center}.glorious-intro img{width:100%;min-height:420px;object-fit:cover}.glorious-intro p{font-size:1.05rem;color:#673b3f}.glorious-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.glorious-photo{height:310px;overflow:hidden;background:#2b050a;position:relative}.glorious-photo.tall{grid-row:span 2;height:auto}.glorious-photo img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease,filter .5s}.glorious-photo:hover img{transform:scale(1.07);filter:brightness(1.08)}.glorious-photo span{position:absolute;bottom:0;left:0;right:0;padding:28px 15px 13px;background:linear-gradient(transparent,#190306bb);color:#fff;font-size:.78rem;letter-spacing:.07em;text-transform:uppercase;opacity:0;transition:.3s}.glorious-photo:hover span{opacity:1}
     @media(max-width:760px){.glorious-hero{min-height:550px}.glorious-intro{grid-template-columns:1fr;gap:30px}.glorious-gallery{grid-template-columns:1fr 1fr}.glorious-photo,.glorious-photo.tall{height:260px;grid-row:auto}}
     @media(max-width:480px){.glorious-gallery{grid-template-columns:1fr}}
   </style>
+<link rel="stylesheet" href="luxury.css">
+<script src="site.js" defer>
+</script>
+<meta name="description" content="Explore Glorious Marquee in Lahore. View venue photographs and contact the team for availability and bookings.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Empire Group">
+<meta property="og:title" content="Glorious Marquee | Empire Group">
+<meta property="og:description" content="Explore Glorious Marquee in Lahore. View venue photographs and contact the team for availability and bookings.">
+<meta property="og:image" content="assets/images/hero/grand-interior-1600.webp">
+<meta property="og:image:alt" content="Grand Empire Marquee wedding hall in Lahore">
+<meta name="theme-color" content="#173d35">
 </head>
 <body>
-  <div class="topbar"><div class="wrap"><span>Glorious Marquee</span><span>Empire Group Venues</span></div></div>
-  <header><nav class="wrap"><a class="brand" href="index.html"><span class="mark">E</span>Empire Group</a><div class="links"><a href="about.html">About</a><div class="venue-nav"><button class="venue-toggle" aria-haspopup="true">Venues ▾</button><div class="venue-menu"><a href="legacy.html">Legacy Event Complex</a><a href="glorious.html" class="active">Glorious Marquee</a><a href="grand-empire.html">Grand Empire Marquee</a><a href="garrison.html">Garrison Empire Halls</a><a href="gallery.html">All venue galleries</a></div></div><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a><a href="book-now.html">Book Now</a><a href="admin-login.html">Admin</a></div></nav></header>
-  <main>
-    <section class="glorious-hero"><div class="wrap"><div class="glorious-tag">Glorious Marquee</div><h1>Celebrate beautifully.</h1><p>A refined setting for weddings, receptions, private celebrations, and every occasion worth gathering for.</p><a class="button" href="https://wa.me/923218489366?text=Hello%20Glorious%20Marquee%2C%20I%20would%20like%20a%20quotation.">Request a quotation <span>→</span></a></div></section>
-    <section><div class="wrap glorious-intro"><img src="assets/glorious/473285075_122166806972267409_7080215392851097761_n.jpg" alt="Glorious Marquee event setup"><div><div class="eyebrow" style="color:#a8162b">The venue</div><h2 style="margin-top:12px">A polished setting for meaningful moments.</h2><p>Glorious Marquee brings together an elegant atmosphere, considered details, and the space to host celebrations your guests will remember.</p><p>Explore the venue gallery below, then contact the team to discuss your date, guest list, and event plans.</p><p><strong>Bookings:</strong> <a href="tel:+923218489366">0321 8489366</a></p></div></div></section>
-    <section style="background:#f6ead7" id="gallery"><div class="wrap"><div class="section-head"><div><div class="eyebrow" style="color:#a8162b">Photo gallery</div><h2 style="margin-top:12px">The Glorious setting.</h2></div><p>Browse the spaces and details that make Glorious Marquee a memorable place to celebrate.</p></div><div class="glorious-gallery"><figure class="glorious-photo tall"><img src="assets/glorious/471427902_122162412218267409_1636286608172820459_n.jpg" alt="Glorious Marquee interior"><span>Venue interior</span></figure><figure class="glorious-photo"><img src="assets/glorious/471203050_122162392400267409_1897159556696915357_n.jpg" alt="Glorious Marquee event decor"><span>Event decor</span></figure><figure class="glorious-photo"><img src="assets/glorious/471192741_122162418392267409_8482537576556161760_n.jpg" alt="Glorious Marquee celebration"><span>Celebration details</span></figure><figure class="glorious-photo"><img src="assets/glorious/447443883_122125861802267409_6396433166800290203_n.jpg" alt="Glorious Marquee hall"><span>Glorious hall</span></figure></div></div></section>
-  </main>
-  <footer><div class="wrap"><div class="footer-main"><div><a class="brand" href="index.html"><span class="mark">E</span>Empire Group</a><p>Creating occasions worth remembering.</p></div><div class="contact"><strong style="color:white">Glorious Marquee</strong><br><a href="tel:+923218489366">0321 8489366</a><br><a href="https://wa.me/923218489366">WhatsApp us</a></div></div><div class="copyright"><span>© 2026 Empire Group. All rights reserved.</span><span>Legacy · Glorious · Grand Empire · Garrison</span></div></div></footer>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header">
+<nav class="wrap" aria-label="Main navigation">
+<a class="brand" href="index.html">
+<span class="mark" aria-hidden="true">E</span>
+<span>Empire Group<small>VENUES &amp; CELEBRATIONS</small>
+</span>
+</a>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-links" aria-label="Open navigation">
+<span>
+</span>
+<span>
+</span>
+</button>
+<div class="links" id="main-links">
+<a href="about.html">About</a>
+<details class="venue-dropdown">
+<summary>Venues</summary>
+<div class="venue-dropdown-menu">
+<a href="legacy.html">Legacy Event Complex</a>
+<a href="glorious.html" aria-current="page">Glorious Marquee</a>
+<a href="grand-empire.html">Grand Empire Marquee</a>
+<a href="garrison.html">Garrison Empire Halls</a>
+<a href="index.html#venues">All Venues</a>
+</div>
+</details>
+<a href="gallery.html">Gallery</a>
+<a href="contact.html">Contact</a>
+<a href="book-now.html">Book Now</a>
+<a href="admin-login.html">Admin</a>
+</div>
+</nav>
+</header>
+<main id="main-content">
+<section class="glorious-hero">
+<div class="wrap">
+<div class="glorious-tag">Glorious Marquee</div>
+<h1>Celebrate beautifully.</h1>
+<p>A refined setting for weddings, receptions, private celebrations, and every occasion worth gathering for.</p>
+<a class="button" href="https://wa.me/923218489366?text=Hello%20Glorious%20Marquee%2C%20I%20would%20like%20a%20quotation.">Request a quotation <span>→</span>
+</a>
+</div>
+</section>
+<section>
+<div class="wrap glorious-intro">
+<img src="assets/images/venues/glorious/473285075_122166806972267409_7080215392851097761_n-960.webp" alt="Glorious Marquee event setup" srcset="assets/images/venues/glorious/473285075_122166806972267409_7080215392851097761_n-480.webp 480w, assets/images/venues/glorious/473285075_122166806972267409_7080215392851097761_n-960.webp 960w, assets/images/venues/glorious/473285075_122166806972267409_7080215392851097761_n-1600.webp 1040w" sizes="(max-width: 700px) 100vw, 50vw" width="960" height="720" loading="lazy" decoding="async" data-full="assets/images/venues/glorious/473285075_122166806972267409_7080215392851097761_n-1600.webp">
+<div>
+<div class="eyebrow" style="color:#a8162b">The venue</div>
+<h2 style="margin-top:12px">A polished setting for meaningful moments.</h2>
+<p>Glorious Marquee brings together an elegant atmosphere, considered details, and the space to host celebrations your guests will remember.</p>
+<p>Explore the venue gallery below, then contact the team to discuss your date, guest list, and event plans.</p>
+<p>
+<strong>Bookings:</strong>
+<a href="tel:+923218489366">0321 8489366</a>
+</p>
+<a class="venue-directions" href="https://maps.app.goo.gl/ikk2hFGtfC9Jtt1B6" target="_blank" rel="noopener" aria-label="Get directions to Glorious Marquee on Google Maps (opens in a new tab)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Get directions <span aria-hidden="true">↗</span></span></a>
+</div>
+</div>
+</section>
+<section style="background:#f6ead7" id="gallery">
+<div class="wrap">
+<div class="section-head">
+<div>
+<div class="eyebrow" style="color:#a8162b">Photo gallery</div>
+<h2 style="margin-top:12px">The Glorious setting.</h2>
+</div>
+<p>Browse the spaces and details that make Glorious Marquee a memorable place to celebrate.</p>
+</div>
+<div class="glorious-gallery">
+<figure class="glorious-photo tall">
+<img src="assets/images/venues/glorious/471427902_122162412218267409_1636286608172820459_n-960.webp" alt="Glorious Marquee interior" srcset="assets/images/venues/glorious/471427902_122162412218267409_1636286608172820459_n-480.webp 480w, assets/images/venues/glorious/471427902_122162412218267409_1636286608172820459_n-960.webp 960w, assets/images/venues/glorious/471427902_122162412218267409_1636286608172820459_n-1600.webp 1280w" sizes="(max-width: 700px) 100vw, 50vw" width="960" height="640" loading="lazy" decoding="async" data-full="assets/images/venues/glorious/471427902_122162412218267409_1636286608172820459_n-1600.webp">
+<span>Venue interior</span>
+</figure>
+<figure class="glorious-photo">
+<img src="assets/images/venues/glorious/471203050_122162392400267409_1897159556696915357_n-960.webp" alt="Glorious Marquee event decor" srcset="assets/images/venues/glorious/471203050_122162392400267409_1897159556696915357_n-480.webp 480w, assets/images/venues/glorious/471203050_122162392400267409_1897159556696915357_n-960.webp 960w, assets/images/venues/glorious/471203050_122162392400267409_1897159556696915357_n-1600.webp 1152w" sizes="(max-width: 700px) 100vw, 50vw" width="960" height="1280" loading="lazy" decoding="async" data-full="assets/images/venues/glorious/471203050_122162392400267409_1897159556696915357_n-1600.webp">
+<span>Event decor</span>
+</figure>
+<figure class="glorious-photo">
+<img src="assets/images/venues/glorious/471192741_122162418392267409_8482537576556161760_n-960.webp" alt="Glorious Marquee celebration" srcset="assets/images/venues/glorious/471192741_122162418392267409_8482537576556161760_n-480.webp 480w, assets/images/venues/glorious/471192741_122162418392267409_8482537576556161760_n-960.webp 960w, assets/images/venues/glorious/471192741_122162418392267409_8482537576556161760_n-1600.webp 1080w" sizes="(max-width: 700px) 100vw, 50vw" width="960" height="960" loading="lazy" decoding="async" data-full="assets/images/venues/glorious/471192741_122162418392267409_8482537576556161760_n-1600.webp">
+<span>Celebration details</span>
+</figure>
+<figure class="glorious-photo">
+<img src="assets/images/venues/glorious/447443883_122125861802267409_6396433166800290203_n-960.webp" alt="Glorious Marquee hall" srcset="assets/images/venues/glorious/447443883_122125861802267409_6396433166800290203_n-480.webp 480w, assets/images/venues/glorious/447443883_122125861802267409_6396433166800290203_n-1600.webp 622w" sizes="(max-width: 700px) 100vw, 50vw" width="622" height="616" loading="lazy" decoding="async" data-full="assets/images/venues/glorious/447443883_122125861802267409_6396433166800290203_n-1600.webp">
+<span>Glorious hall</span>
+</figure>
+</div>
+</div>
+</section>
+<section class="booking-cta">
+<div class="wrap">
+<div class="eyebrow">YOUR NEXT CHAPTER STARTS HERE</div>
+<h2>Your celebration deserves<br>an <em>extraordinary</em> setting.</h2>
+<p>Share your vision. We’ll help you find the perfect place to bring it to life.</p>
+<div class="button-row">
+<a class="button" href="contact.html#quote-form">Get a quotation <span>↗</span>
+</a>
+<a class="button button-outline" href="https://wa.me/923218489366">WhatsApp us <span>↗</span>
+</a>
+</div>
+</div>
+</section>
+</main>
+<footer>
+<div class="wrap">
+<div class="footer-main">
+<div>
+<a class="brand" href="index.html">
+<span class="mark" aria-hidden="true">E</span>
+<span>Empire Group<small>VENUES &amp; CELEBRATIONS</small>
+</span>
+</a>
+<p>Beautiful settings. Thoughtful hospitality.<br>Celebrations that stay with you.</p>
+<a class="text-link" href="https://wa.me/923218489366">Let’s plan something special ↗</a>
+</div>
+<div class="footer-links">
+<h3>Our venues</h3>
+<a href="legacy.html">Legacy Event Complex</a>
+<a href="glorious.html">Glorious Marquee</a>
+<a href="grand-empire.html">Grand Empire Marquee</a>
+<a href="garrison.html">Garrison Empire Halls</a>
+</div>
+<div class="contact">
+<strong style="color:white">Glorious Marquee</strong>
+<br>
+<a href="tel:+923218489366">0321 8489366</a>
+<br>
+<a href="https://wa.me/923218489366">WhatsApp us</a>
+</div>
+<div class="footer-links">
+<h3>Stay connected</h3>
+<a href="https://www.facebook.com/profile.php?id=100094765842459" target="_blank" rel="noopener">Legacy on Facebook ↗</a>
+<a href="https://www.facebook.com/profile.php?id=61558022280793" target="_blank" rel="noopener">Glorious on Facebook ↗</a>
+<a href="https://www.facebook.com/grandempiremarque" target="_blank" rel="noopener">Grand on Facebook ↗</a>
+<a href="https://www.facebook.com/GarrisonEmpire82" target="_blank" rel="noopener">Garrison on Facebook ↗</a>
+</div>
+</div>
+<div class="copyright">
+<span>© 2026 Empire Group. All rights reserved.</span>
+<span>
+<a href="privacy.html">Privacy</a>
+<span aria-hidden="true"> / </span>
+<a href="terms.html">Terms</a>
+<span aria-hidden="true"> / </span>
+<a href="admin-login.html">Staff login</a>
+</span>
+<span>Made for moments that matter.</span>
+</div>
+</div>
+</footer>
+<a class="floating-whatsapp" href="https://wa.me/923218489366?text=Hello%20Empire%20Group%2C%20I%20would%20like%20to%20enquire%20about%20an%20event." aria-label="Enquire now on WhatsApp">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+<path d="M20.5 11.6a8.5 8.5 0 0 1-12.6 7.5L3 20.5l1.4-4.8a8.5 8.5 0 1 1 16.1-4.1Z"/>
+<path d="M8 7.5c-2 2 3 8 6 7.5l1.5-2-2.5-1-1 1c-1.3-.6-2.3-1.6-3-3l1-1Z"/>
+</svg>
+<span>Enquire Now</span>
+</a>
 </body>
 </html>

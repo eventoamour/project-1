@@ -1,5 +1,6 @@
 -- Empire Group staff and walk-in customer schema
--- Run this entire file in the Supabase SQL Editor.
+-- Fresh-project setup only. Do not run this as a migration on an existing database.
+-- Column names match the deployed table verified on 2026-09-14.
 create extension if not exists pgcrypto;
 
 do $$ begin
@@ -17,11 +18,19 @@ create table if not exists public.profiles (
 create table if not exists public.customer_visits (
   id uuid primary key default gen_random_uuid(),
   customer_name text not null check (char_length(trim(customer_name)) between 1 and 120),
-  phone_number text not null check (char_length(trim(phone_number)) between 3 and 40),
-  number_of_guests integer not null check (number_of_guests > 0),
+  phone text not null check (char_length(trim(phone)) between 3 and 40),
+  guests integer not null check (guests > 0),
   visit_date date not null default current_date,
   manager_name text not null,
   event_type text check (event_type is null or event_type in ('Wedding','Walima','Mehndi','Nikkah','Engagement','Birthday','Corporate Event','Other')),
+  venue_name text,
+  hall_number text,
+  event_timing text check (event_timing is null or event_timing in ('Morning','Evening')),
+  menu_package text check (menu_package is null or menu_package in ('Chicken one dish', 'Mutton one dish')),
+  menu_extras text[] not null default '{}',
+  other_extras text check (other_extras is null or char_length(other_extras) <= 500),
+  quoted_rate numeric(12,2) check (quoted_rate is null or quoted_rate >= 0),
+  rate_basis text not null default 'per_guest' check (rate_basis in ('per_guest', 'total_event')),
   notes text check (notes is null or char_length(notes) <= 2000),
   created_by uuid not null references auth.users(id) on delete restrict,
   created_at timestamptz not null default timezone('utc', now()),
@@ -32,7 +41,7 @@ create index if not exists customer_visits_visit_date_idx on public.customer_vis
 create index if not exists customer_visits_created_by_idx on public.customer_visits (created_by);
 create index if not exists customer_visits_event_type_idx on public.customer_visits (event_type);
 create index if not exists customer_visits_customer_name_idx on public.customer_visits (lower(customer_name));
-create index if not exists customer_visits_phone_number_idx on public.customer_visits (phone_number);
+create index if not exists customer_visits_phone_idx on public.customer_visits (phone);
 
 create or replace function public.is_staff()
 returns boolean language sql stable security definer set search_path = public
@@ -50,13 +59,19 @@ create or replace function public.set_customer_visit_metadata()
 returns trigger language plpgsql security definer set search_path = public
 as $$
 begin
-  if not public.is_staff() then raise exception 'Only authorized staff can manage customer visits'; end if;
+  if not public.is_staff() then
+    raise exception 'Only authorized staff can manage customer visits';
+  end if;
   if tg_op = 'INSERT' then
     new.created_by := auth.uid();
-    new.manager_name := public.current_staff_name();
+    -- Preserve compatibility with older clients that omit the manager field.
+    new.manager_name := coalesce(nullif(trim(new.manager_name), ''), public.current_staff_name());
   else
     new.created_by := old.created_by;
-    new.manager_name := old.manager_name;
+    new.manager_name := nullif(trim(new.manager_name), '');
+  end if;
+  if new.manager_name is null or char_length(new.manager_name) > 120 then
+    raise exception 'Enter a manager name between 1 and 120 characters';
   end if;
   new.updated_at := timezone('utc', now());
   return new;
